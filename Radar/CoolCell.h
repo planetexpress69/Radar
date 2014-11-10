@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CoolCell.h
 //  Radar
 //
 //  Created by Martin Kautz on 10.11.14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <NSStreamDelegate, UITableViewDataSource, UITableViewDelegate>
-
-
+@interface CoolCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UITextField *theTextfield;
 @end
-

@@ -14,6 +14,7 @@
 		5B3C31DC1A10EE6300B1351A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3C31DB1A10EE6300B1351A /* Images.xcassets */; };
 		5B3C31DF1A10EE6300B1351A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3C31DD1A10EE6300B1351A /* LaunchScreen.xib */; };
 		5B3C31EB1A10EE6300B1351A /* RadarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C31EA1A10EE6300B1351A /* RadarTests.m */; };
+		5B3C31F61A110A1700B1351A /* CoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C31F51A110A1700B1351A /* CoolCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		5B3C31E41A10EE6300B1351A /* RadarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3C31E91A10EE6300B1351A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B3C31EA1A10EE6300B1351A /* RadarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadarTests.m; sourceTree = "<group>"; };
+		5B3C31F41A110A1700B1351A /* CoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoolCell.h; sourceTree = "<group>"; };
+		5B3C31F51A110A1700B1351A /* CoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoolCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				5B3C31D21A10EE6300B1351A /* AppDelegate.h */,
+				5B3C31F41A110A1700B1351A /* CoolCell.h */,
+				5B3C31F51A110A1700B1351A /* CoolCell.m */,
 				5B3C31D31A10EE6300B1351A /* AppDelegate.m */,
 				5B3C31D51A10EE6300B1351A /* ViewController.h */,
 				5B3C31D61A10EE6300B1351A /* ViewController.m */,
@@ -221,6 +226,7 @@
 			files = (
 				5B3C31D71A10EE6300B1351A /* ViewController.m in Sources */,
 				5B3C31D41A10EE6300B1351A /* AppDelegate.m in Sources */,
+				5B3C31F61A110A1700B1351A /* CoolCell.m in Sources */,
 				5B3C31D11A10EE6300B1351A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
