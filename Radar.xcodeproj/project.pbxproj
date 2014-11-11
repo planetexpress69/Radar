@@ -53,16 +53,16 @@
 		5B3C31EA1A10EE6300B1351A /* RadarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadarTests.m; sourceTree = "<group>"; };
 		5B3C31F41A110A1700B1351A /* CoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoolCell.h; sourceTree = "<group>"; };
 		5B3C31F51A110A1700B1351A /* CoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoolCell.m; sourceTree = "<group>"; };
-		5BA3450B1A1218E100C86111 /* libais.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libais.h; path = libais/libais/libais/libais.h; sourceTree = "<group>"; };
-		5BA3450D1A1218F700C86111 /* libais.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = libais.c; path = libais/libais/libais/libais.c; sourceTree = "<group>"; };
-		5BA3450F1A12192000C86111 /* bits.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = bits.c; path = libais/libais/libais/bits.c; sourceTree = "<group>"; };
-		5BA345101A12192000C86111 /* bits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bits.h; path = libais/libais/libais/bits.h; sourceTree = "<group>"; };
-		5BA345111A12192000C86111 /* driver_ais.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = driver_ais.c; path = libais/libais/libais/driver_ais.c; sourceTree = "<group>"; };
-		5BA345121A12192000C86111 /* gps_json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gps_json.h; path = libais/libais/libais/gps_json.h; sourceTree = "<group>"; };
-		5BA345131A12192000C86111 /* gps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gps.h; path = libais/libais/libais/gps.h; sourceTree = "<group>"; };
-		5BA345141A12192000C86111 /* gpsd_json.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = gpsd_json.c; path = libais/libais/libais/gpsd_json.c; sourceTree = "<group>"; };
-		5BA345151A12192000C86111 /* gpsd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gpsd.h; path = libais/libais/libais/gpsd.h; sourceTree = "<group>"; };
-		5BA345161A12192000C86111 /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = json.h; path = libais/libais/libais/json.h; sourceTree = "<group>"; };
+		5BA3450B1A1218E100C86111 /* libais.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libais.h; path = libais/libais/libais.h; sourceTree = "<group>"; };
+		5BA3450D1A1218F700C86111 /* libais.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = libais.c; path = libais/libais/libais.c; sourceTree = "<group>"; };
+		5BA3450F1A12192000C86111 /* bits.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = bits.c; path = libais/libais/bits.c; sourceTree = "<group>"; };
+		5BA345101A12192000C86111 /* bits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bits.h; path = libais/libais/bits.h; sourceTree = "<group>"; };
+		5BA345111A12192000C86111 /* driver_ais.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = driver_ais.c; path = libais/libais/driver_ais.c; sourceTree = "<group>"; };
+		5BA345121A12192000C86111 /* gps_json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gps_json.h; path = libais/libais/gps_json.h; sourceTree = "<group>"; };
+		5BA345131A12192000C86111 /* gps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gps.h; path = libais/libais/gps.h; sourceTree = "<group>"; };
+		5BA345141A12192000C86111 /* gpsd_json.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = gpsd_json.c; path = libais/libais/gpsd_json.c; sourceTree = "<group>"; };
+		5BA345151A12192000C86111 /* gpsd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gpsd.h; path = libais/libais/gpsd.h; sourceTree = "<group>"; };
+		5BA345161A12192000C86111 /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = json.h; path = libais/libais/json.h; sourceTree = "<group>"; };
 		5BFB97871A1163D000F61C9B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
