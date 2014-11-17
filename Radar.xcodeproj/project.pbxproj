@@ -18,13 +18,10 @@
 		5BA3450C1A1218E100C86111 /* libais.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3450B1A1218E100C86111 /* libais.h */; };
 		5BA3450E1A1218F700C86111 /* libais.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3450D1A1218F700C86111 /* libais.c */; };
 		5BA345171A12192000C86111 /* bits.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3450F1A12192000C86111 /* bits.c */; };
-		5BA345181A12192000C86111 /* bits.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BA345101A12192000C86111 /* bits.h */; };
 		5BA345191A12192000C86111 /* driver_ais.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BA345111A12192000C86111 /* driver_ais.c */; };
-		5BA3451A1A12192000C86111 /* gps_json.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BA345121A12192000C86111 /* gps_json.h */; };
 		5BA3451B1A12192000C86111 /* gps.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BA345131A12192000C86111 /* gps.h */; };
 		5BA3451C1A12192000C86111 /* gpsd_json.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BA345141A12192000C86111 /* gpsd_json.c */; };
 		5BA3451D1A12192000C86111 /* gpsd.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BA345151A12192000C86111 /* gpsd.h */; };
-		5BA3451E1A12192000C86111 /* json.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BA345161A12192000C86111 /* json.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,13 +262,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BA345171A12192000C86111 /* bits.c in Sources */,
-				5BA345181A12192000C86111 /* bits.h in Sources */,
 				5BA345191A12192000C86111 /* driver_ais.c in Sources */,
-				5BA3451A1A12192000C86111 /* gps_json.h in Sources */,
 				5BA3451B1A12192000C86111 /* gps.h in Sources */,
 				5BA3451C1A12192000C86111 /* gpsd_json.c in Sources */,
 				5BA3451D1A12192000C86111 /* gpsd.h in Sources */,
-				5BA3451E1A12192000C86111 /* json.h in Sources */,
 				5BA3450E1A1218F700C86111 /* libais.c in Sources */,
 				5BA3450C1A1218E100C86111 /* libais.h in Sources */,
 				5B3C31D71A10EE6300B1351A /* ViewController.m in Sources */,

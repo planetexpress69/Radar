@@ -104,7 +104,7 @@
                 NSString *part              = nil;
 
                 for (part in exploded) {
-                    if ([part hasPrefix:@"!AIVDM"]) {
+                    if ([part hasPrefix:@"!A"]) {
                         self.count ++;
                         self.theTextField.text = [NSString stringWithFormat:@"%ld", (long)self.count];
                         [self.theStore addObject:part];
@@ -163,16 +163,14 @@
     struct gps_device_t     session;
     struct ais_t            ais;
     const char *msg = [string cStringUsingEncoding:NSUTF8StringEncoding];
-
-
-    size_t len = strlen(msg);
-    printf("msg: %s\nlen: %zu\n", msg, len);
-
-
+    char dest[string.length];
+    strncpy(dest, msg, sizeof(dest));
+    size_t len = sizeof(dest);
+    printf("msg: %s\nlen: %zu\n", dest, len);
     char buf[JSON_VAL_MAX * 2 + 1];
     size_t buflen = sizeof(buf);
 
-    aivdm_decode(msg, len, &session, &ais, 0);
+    aivdm_decode(dest, len, &session, &ais, 0);
     printf("type: %d, repeat: %d, mmsi: %d\n", ais.type, ais.repeat, ais.mmsi);
     json_aivdm_dump(&ais, NULL, true, buf, buflen);
     printf("JSN: %s\n", buf);
