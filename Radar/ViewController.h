@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface ViewController : UIViewController <NSStreamDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ViewController : UIViewController <NSStreamDelegate, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
 
 
 @end

@@ -15,13 +15,12 @@
 		5B3C31DF1A10EE6300B1351A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3C31DD1A10EE6300B1351A /* LaunchScreen.xib */; };
 		5B3C31EB1A10EE6300B1351A /* RadarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C31EA1A10EE6300B1351A /* RadarTests.m */; };
 		5B3C31F61A110A1700B1351A /* CoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C31F51A110A1700B1351A /* CoolCell.m */; };
-		5BA3450C1A1218E100C86111 /* libais.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3450B1A1218E100C86111 /* libais.h */; };
 		5BA3450E1A1218F700C86111 /* libais.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3450D1A1218F700C86111 /* libais.c */; };
 		5BA345171A12192000C86111 /* bits.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3450F1A12192000C86111 /* bits.c */; };
 		5BA345191A12192000C86111 /* driver_ais.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BA345111A12192000C86111 /* driver_ais.c */; };
-		5BA3451B1A12192000C86111 /* gps.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BA345131A12192000C86111 /* gps.h */; };
 		5BA3451C1A12192000C86111 /* gpsd_json.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BA345141A12192000C86111 /* gpsd_json.c */; };
-		5BA3451D1A12192000C86111 /* gpsd.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BA345151A12192000C86111 /* gpsd.h */; };
+		5BCF19BC1A42FF9A008CA8FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BCF19BB1A42FF9A008CA8FC /* MapKit.framework */; };
+		5BCF19BF1A43183B008CA8FC /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF19BE1A43183B008CA8FC /* Pin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +59,9 @@
 		5BA345141A12192000C86111 /* gpsd_json.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = gpsd_json.c; path = libais/libais/gpsd_json.c; sourceTree = "<group>"; };
 		5BA345151A12192000C86111 /* gpsd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gpsd.h; path = libais/libais/gpsd.h; sourceTree = "<group>"; };
 		5BA345161A12192000C86111 /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = json.h; path = libais/libais/json.h; sourceTree = "<group>"; };
+		5BCF19BB1A42FF9A008CA8FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5BCF19BD1A43183B008CA8FC /* Pin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pin.h; sourceTree = "<group>"; };
+		5BCF19BE1A43183B008CA8FC /* Pin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pin.m; sourceTree = "<group>"; };
 		5BFB97871A1163D000F61C9B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BCF19BC1A42FF9A008CA8FC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +87,7 @@
 		5B3C31C21A10EE6300B1351A = {
 			isa = PBXGroup;
 			children = (
+				5BCF19BB1A42FF9A008CA8FC /* MapKit.framework */,
 				5BA3451F1A12192A00C86111 /* libais */,
 				5BFB97871A1163D000F61C9B /* README.md */,
 				5B3C31CD1A10EE6300B1351A /* Radar */,
@@ -111,6 +115,8 @@
 				5B3C31D51A10EE6300B1351A /* ViewController.h */,
 				5B3C31D61A10EE6300B1351A /* ViewController.m */,
 				5B3C31D81A10EE6300B1351A /* Main.storyboard */,
+				5BCF19BD1A43183B008CA8FC /* Pin.h */,
+				5BCF19BE1A43183B008CA8FC /* Pin.m */,
 				5B3C31DB1A10EE6300B1351A /* Images.xcassets */,
 				5B3C31DD1A10EE6300B1351A /* LaunchScreen.xib */,
 				5B3C31CE1A10EE6300B1351A /* Supporting Files */,
@@ -210,6 +216,7 @@
 				TargetAttributes = {
 					5B3C31CA1A10EE6300B1351A = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = UQ24M9LT38;
 					};
 					5B3C31E31A10EE6300B1351A = {
 						CreatedOnToolsVersion = 6.1;
@@ -263,11 +270,9 @@
 			files = (
 				5BA345171A12192000C86111 /* bits.c in Sources */,
 				5BA345191A12192000C86111 /* driver_ais.c in Sources */,
-				5BA3451B1A12192000C86111 /* gps.h in Sources */,
+				5BCF19BF1A43183B008CA8FC /* Pin.m in Sources */,
 				5BA3451C1A12192000C86111 /* gpsd_json.c in Sources */,
-				5BA3451D1A12192000C86111 /* gpsd.h in Sources */,
 				5BA3450E1A1218F700C86111 /* libais.c in Sources */,
-				5BA3450C1A1218E100C86111 /* libais.h in Sources */,
 				5B3C31D71A10EE6300B1351A /* ViewController.m in Sources */,
 				5B3C31D41A10EE6300B1351A /* AppDelegate.m in Sources */,
 				5B3C31F61A110A1700B1351A /* CoolCell.m in Sources */,
@@ -397,9 +402,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Radar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "libais/**";
 			};
 			name = Debug;
@@ -408,9 +416,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Radar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "libais/**";
 			};
 			name = Release;

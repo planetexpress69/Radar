@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "CoolCell.h"
 #import "libais.h"
+#import "Pin.h"
 
 @interface ViewController ()
 // ---------------------------------------------------------------------------------------------------------------------
@@ -19,8 +20,11 @@
 @property (nonatomic, weak)     IBOutlet    UITableView     *theTableView;
 @property (nonatomic, weak)     IBOutlet    UIButton        *theButton;
 @property (nonatomic, weak)     IBOutlet    UITextField     *theTextField;
+@property (nonatomic, weak)     IBOutlet    MKMapView       *theMapView;
 // ---------------------------------------------------------------------------------------------------------------------
 @end
+
+#define METERS_PER_MILE 1609.344
 
 @implementation ViewController
 
@@ -34,6 +38,8 @@
     [self.theButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.theButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     self.theButton.layer.cornerRadius = 6.0f;
+    self.theMapView.delegate = self;
+    [self zoomToLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,22 +105,59 @@
             if(len) {
                 [self.data appendBytes:(const void *)buf length:len];
 
-                NSString *newStrAlternate   = [[NSString alloc]initWithData:self.data encoding:NSUTF8StringEncoding];
-                NSArray *exploded           = [newStrAlternate componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+
+                NSString *newStrAlternate   = [[NSString alloc]initWithData:self.data encoding:NSASCIIStringEncoding];
+                //NSString *newStrAlternate   = [[NSString alloc]initWithBytes:buf length:len encoding:NSASCIIStringEncoding];
+                ///NSLog(@"len: %d %s", len, buf);
+
+                NSArray *exploded           = [newStrAlternate componentsSeparatedByString:@"\n"];
                 NSString *part              = nil;
 
                 for (part in exploded) {
                     if ([part hasPrefix:@"!A"]) {
                         self.count ++;
                         self.theTextField.text = [NSString stringWithFormat:@"%ld", (long)self.count];
-                        [self.theStore addObject:part];
+
+                        //NSLog(@"part: %@", part);
+                        //NSLog(@"decd: %@", [self decode:[part stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]);
+
+                        // json as string literal
+                        NSString *sRec = [self decode:[part stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+                        NSDictionary *oRec = [NSJSONSerialization JSONObjectWithData:[sRec dataUsingEncoding:NSUTF8StringEncoding]
+                                                                  options:NSJSONReadingMutableContainers
+                                                                    error:nil];
+                        if ([oRec objectForKey:@"mmsi"] && [oRec objectForKey:@"lat"] && [oRec objectForKey:@"lon"]) {
+
+                            NSLog(@"oRec: %@", oRec);
+                            CLLocationDegrees lat, lon;
+                            lat = [[oRec objectForKey:@"lat"]doubleValue];
+                            lon = [[oRec objectForKey:@"lon"]doubleValue];
+
+                            Pin *pin = [[Pin alloc] initWithTitle:@"Foo" andCoordinate:CLLocationCoordinate2DMake(lat, lon)];
+                            pin.mmsi = [[oRec objectForKey:@"mmsi"]stringValue];
+
+                            NSArray *availableAnnos = self.theMapView.annotations;
+                            for (Pin *oldPin in availableAnnos) {
+                                if ([oldPin.mmsi isEqualToString:pin.mmsi]) {
+                                    [self.theMapView removeAnnotation:oldPin];
+                                    break;
+                                }
+                            }
+                            [self.theMapView addAnnotation:pin];
+                        }
+
+
+
+                        [self.theStore addObject:sRec];
+
+
+
                         if (self.theStore.count > 20) {
                             [self.theStore removeObjectAtIndex:0];
                         }
                         [self.theTableView reloadData];
-                    } 
+                    }
                 }
-
                 self.data = nil;
 
             } else {
@@ -154,7 +197,7 @@
 {
     CoolCell *coolCell = (CoolCell *)[tableView dequeueReusableCellWithIdentifier:@"CoolCell" forIndexPath:indexPath];
     NSString *rawRecord = self.theStore[indexPath.row];
-    coolCell.theTextfield.text = [self decode:rawRecord];
+    coolCell.theTextfield.text = rawRecord;
     return coolCell;
 }
 
@@ -163,18 +206,41 @@
     struct gps_device_t     session;
     struct ais_t            ais;
     const char *msg = [string cStringUsingEncoding:NSUTF8StringEncoding];
-    char dest[string.length];
-    strncpy(dest, msg, sizeof(dest));
-    size_t len = sizeof(dest);
-    printf("msg: %s\nlen: %zu\n", dest, len);
+    size_t len = strlen(msg);
+    //printf("msg: %s\nlen: %zu\n", dest, len);
     char buf[JSON_VAL_MAX * 2 + 1];
     size_t buflen = sizeof(buf);
+    //printf("Trying to decode: %s\n", dest);
 
-    aivdm_decode(dest, len, &session, &ais, 0);
-    printf("type: %d, repeat: %d, mmsi: %d\n", ais.type, ais.repeat, ais.mmsi);
-    json_aivdm_dump(&ais, NULL, true, buf, buflen);
-    printf("JSN: %s\n", buf);
-    return [NSString stringWithFormat:@"%s", buf];
+        aivdm_decode(msg, len, &session, &ais, 0);
+        //printf("type: %d, repeat: %d, mmsi: %d\n", ais.type, ais.repeat, ais.mmsi);
+        json_aivdm_dump(&ais, NULL, true, buf, buflen);
+        //printf("JSN: %s\n", buf);
+        return [NSString stringWithFormat:@"%s", buf];
+
+
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"MyPin"];
+    if (!annotationView) {
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MyPin"];
+        annotationView.canShowCallout = YES;
+        annotationView.animatesDrop = NO;
+    }
+    annotationView.annotation = annotation;
+    return annotationView;
+}
+
+- (void)zoomToLocation
+{
+    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = 37.80;
+    zoomLocation.longitude= -122.34;
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 100*METERS_PER_MILE,100*METERS_PER_MILE);
+    [self.theMapView setRegion:viewRegion animated:YES];
+    [self.theMapView regionThatFits:viewRegion];
 }
 
 
